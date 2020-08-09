@@ -1,0 +1,70 @@
+{
+  "name": "next-mobx-starter",
+  "version": "0.0.0",
+  "repository": "git@github.com:jeremyxgo/next-mobx-starter.git",
+  "author": "jeremyxgo",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix --max-warnings 0 \"./src/**/*.js\"",
+    "format": "prettier --write \"./src/**/*.js\"",
+    "test": "jest --passWithNoTests",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "up": "npm run build && npm run start"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --allow-empty && npm run test",
+      "pre-push": "npm run test"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.js": [
+      "eslint --fix --max-warnings 0",
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "./src/(components|fragments|pages)/**/*.js"
+    ],
+    "moduleNameMapper": {
+      "^@components/(.*)$": "<rootDir>/src/components/$1",
+      "^@fragments/(.*)$": "<rootDir>/src/fragments/$1",
+      "^@pages/(.*)$": "<rootDir>/src/pages/$1",
+      "^@utils/(.*)$": "<rootDir>/src/utils/$1"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.js"
+    ]
+  },
+  "dependencies": {
+    "esm": "^3.2.25",
+    "mobx": "^6.0.4",
+    "mobx-react-lite": "^3.1.6",
+    "next": "10.0.3",
+    "next-i18next": "^7.0.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-styled-components": "^1.12.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.0",
+    "jest": "^26.6.3",
+    "jest-styled-components": "^7.0.3",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.2.1"
+  }
+}

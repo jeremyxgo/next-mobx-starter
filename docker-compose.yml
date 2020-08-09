@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+
+    ports:
+      - ${PORT:-3000}:3000
+
+    environment:
+      PORT: ${PORT:-3000}
+
+    env_file:
+      - .env
